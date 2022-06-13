@@ -11,9 +11,9 @@ public class SpawnerControl : MonoBehaviour
 
     private void Update()
     {
-        GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(gos.Length);
-        if (gos.Length <= 0 && !spawning)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        // Debug.Log(enemies.Length);
+        if (enemies.Length <= 0 && !spawning)
         {
             spawning = true;
             for (int i = 0; i < spawning_number; i++)

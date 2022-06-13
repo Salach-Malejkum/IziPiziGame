@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constants;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -11,12 +12,15 @@ public class PlayerScript : MonoBehaviour
     public int killCounter = 0;
     public int lives = 3;
     public Camera playerCamera;
-    public int weaponDamage = 25;
+
+    public int weaponDamage = MELEEDAMAGE;
+    public string weapon = "Melee";
+    public float range = MELEERANGE;
+
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
     float speed = 4f;
     CharacterController characterController;
-    // Start is called before the first frame update
 
     void Start()
     {   //Makes it invisable
@@ -43,6 +47,7 @@ public class PlayerScript : MonoBehaviour
         {
             speed = runSpeed;
         }
+
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
@@ -77,13 +82,14 @@ public class PlayerScript : MonoBehaviour
 
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        // Zmienic Mathf.Infinity na melee bron
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range, layerMask))
         {
-            if (hit.transform.gameObject.CompareTag("Enemy")) // sprecyzowac co ma trafic
+            if (hit.transform.gameObject.CompareTag("Enemy"))
             {
                 EnemyAI target = hit.transform.GetComponent<EnemyAI>();
                 target.TakeDamage(weaponDamage); //wywoluje zabranie hp, ale obecnie nie mozna trafic
+                Debug.Log("HIT");
                 // Destroy(hit.transform.gameObject);
                 // dzwiek trafienie lub zmisowania czy cos
             }
@@ -97,14 +103,20 @@ public class PlayerScript : MonoBehaviour
     {
         if (coll.transform.gameObject.CompareTag("Weapon"))
         {
-            //ekwipowanie broni
+            //equip weapon
             switch(coll.transform.gameObject.name)
             {
                 case "Melee":
-                    // cos tam
+                    range = MELEERANGE;
+                    weaponDamage = MELEEDAMAGE;
                     break;
                 case "Ranged":
-                    // cos tam
+                    range = RANGEDRANGE;
+                    weaponDamage = RANGEDDAMAGE;
+                    break;
+                case "RPG":
+                    range = RPGRANGE;
+                    weaponDamage = RPGDAMAGE;
                     break;
             }
             Destroy(coll.transform.gameObject);

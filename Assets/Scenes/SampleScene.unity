@@ -1086,6 +1086,7 @@ MonoBehaviour:
   lives: 3
   playerCamera: {fileID: 53072810}
   weaponDamage: 25
+  weapon: Melee
 --- !u!4 &322908248
 Transform:
   m_ObjectHideFlags: 0

@@ -96,7 +96,7 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        hp -= damage;
+        // hp -= damage;
 
         if (hp <= 0) Invoke(nameof(Die), .5f);
     }
