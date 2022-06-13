@@ -24,7 +24,8 @@ public class EnemyAI : MonoBehaviour
     //States
     public float sightRange, attackRange;
     public bool playerInSight, playerInRange;
-    public bool spawned = true;
+    private bool spawned = true;
+    private bool wasAttacked = false;
 
     private void Awake()
     {
@@ -37,8 +38,8 @@ public class EnemyAI : MonoBehaviour
         playerInSight = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSight && !playerInRange) Patrol();
-        if (playerInSight && !playerInRange) Chase();
+        if (!playerInSight && !playerInRange && !wasAttacked) Patrol();
+        if ((playerInSight && !playerInRange) || wasAttacked) Chase();
         if (playerInSight && playerInRange) Attack();
     }
 
@@ -85,6 +86,7 @@ public class EnemyAI : MonoBehaviour
         if (!attacked)
         {
             attacked = true;
+            player.GetComponent<PlayerScript>().LoseHP();
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -96,7 +98,8 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // hp -= damage;
+        hp -= damage;
+        wasAttacked = true;
 
         if (hp <= 0) Invoke(nameof(Die), .5f);
     }

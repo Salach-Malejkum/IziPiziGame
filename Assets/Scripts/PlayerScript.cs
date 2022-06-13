@@ -11,6 +11,8 @@ public class PlayerScript : MonoBehaviour
     public float lookXLimit = 45.0f;
     public int killCounter = 0;
     public int lives = 3;
+    private bool gotHit = false;
+    public float delayBetweenLostHp = 2f;
     public Camera playerCamera;
 
     public int weaponDamage = MELEEDAMAGE;
@@ -122,5 +124,20 @@ public class PlayerScript : MonoBehaviour
             }
             Destroy(coll.transform.gameObject);
         }
+    }
+
+    public void LoseHP()
+    {
+        if (!gotHit)
+        {
+            gotHit = true;
+            lives -= 1;
+            Invoke(nameof(ResetHpCountdown), delayBetweenLostHp);
+        }
+    }
+
+    void ResetHpCountdown()
+    {
+        gotHit = false;
     }
 }
