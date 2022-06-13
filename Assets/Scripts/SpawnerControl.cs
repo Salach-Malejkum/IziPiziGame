@@ -14,7 +14,7 @@ public class SpawnerControl : MonoBehaviour
     }
 
     public Wave[] waves;
-    private int nextWave = 0;
+    public int nextWave = 0;
     public SpawnState state = SpawnState.COUNTING;
 
     public float spawnDelay = 5f;
@@ -50,7 +50,7 @@ public class SpawnerControl : MonoBehaviour
         countdown = spawnDelay;
 
         if (nextWave+1 > waves.Length-1)
-        { // dodaæ tutaj co siê bêdzie dzia³o jak skoñcz¹ siê fale
+        { // dodaï¿½ tutaj co siï¿½ bï¿½dzie dziaï¿½o jak skoï¿½czï¿½ siï¿½ fale
             nextWave = 0;
             Debug.Log("All waves completed! Looping back in time, good luck"); 
         }
@@ -89,5 +89,10 @@ public class SpawnerControl : MonoBehaviour
     {
         Debug.Log("Spawn Enemy");
         Instantiate(_enemy, transform.position, transform.rotation);
+    }
+
+    public int GetWave()
+    {
+        return waves[nextWave].number;
     }
 }

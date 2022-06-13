@@ -113,14 +113,14 @@ public class PlayerScript : MonoBehaviour
             //equip weapon
             switch(coll.transform.gameObject.name)
             {
-                case "Melee":
+                case var s when coll.transform.gameObject.name.Contains("Melee"):
                     range = MELEERANGE;
                     weaponDamage = MELEEDAMAGE;
                     weapon = "Melee";
                     ranged.GetComponent<MeshRenderer>().enabled = false;
                     melee.GetComponent<MeshRenderer>().enabled = true;
                     break;
-                case "Ranged":
+                case var s when coll.transform.gameObject.name.Contains("Ranged"):
                     range = RANGEDRANGE;
                     weaponDamage = RANGEDDAMAGE;
                     weapon = "Ranged";
