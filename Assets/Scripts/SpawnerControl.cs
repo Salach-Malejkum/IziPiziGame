@@ -4,30 +4,90 @@ using UnityEngine;
 
 public class SpawnerControl : MonoBehaviour
 {
-    public GameObject monsterPrefab;
-    public int spawning_number = 1;
-    private bool spawning = false;
-    public int max_monsters = 50;
+    public enum SpawnState { SPAWNING, WAITING, COUNTING };
+    [System.Serializable]
+    public class Wave
+    {
+        public int number;
+        public Transform enemy;
+        public int spawning_number;
+    }
+
+    public Wave[] waves;
+    private int nextWave = 0;
+    public SpawnState state = SpawnState.COUNTING;
+
+    public float spawnDelay = 5f;
+    public float countdown;
+    private float searchDelay = 0f;
+    private float monsterDelay = .2f;
+
+    private void Start()
+    {
+        countdown = spawnDelay;
+    }
 
     private void Update()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        // Debug.Log(enemies.Length);
-        if (enemies.Length <= 0 && !spawning)
+        if (state == SpawnState.WAITING)
         {
-            spawning = true;
-            for (int i = 0; i < spawning_number; i++)
+            if (!CheckIfEnemiesAlive())
             {
-                Invoke(nameof(AddMonster), .5f);
-                spawning_number++;
+                WaveCompleted();
             }
-            spawning = false;
+            else return;
         }
 
+        if (countdown <= 0 && state == SpawnState.COUNTING) StartCoroutine(SpawnWave(waves[nextWave]));
+        else if (countdown > 0) countdown -= Time.deltaTime;
     }
 
-    private void AddMonster()
+    void WaveCompleted()
     {
-        var monster = Instantiate(monsterPrefab, transform);
+        Debug.Log("Wave completed");
+
+        state = SpawnState.COUNTING;
+        countdown = spawnDelay;
+
+        if (nextWave+1 > waves.Length-1)
+        { // dodaæ tutaj co siê bêdzie dzia³o jak skoñcz¹ siê fale
+            nextWave = 0;
+            Debug.Log("All waves completed! Looping back in time, good luck"); 
+        }
+        nextWave++;
+    }
+
+    bool CheckIfEnemiesAlive()
+    {
+        searchDelay -= Time.deltaTime;
+        if (searchDelay <= 0)
+        {
+            searchDelay = 1f;
+            if (GameObject.FindGameObjectWithTag("Enemy") == null) return false;
+        }
+        
+        return true;
+    }
+
+    IEnumerator SpawnWave(Wave _wave)
+    {
+        Debug.Log("Spawn wave");
+        state = SpawnState.SPAWNING;
+
+        for (int i = 0; i < _wave.spawning_number; i++)
+        {
+            SpawnEnemy(_wave.enemy);
+            yield return new WaitForSeconds(monsterDelay);
+        }
+
+        state = SpawnState.WAITING;
+
+        yield break;
+    }
+
+    void SpawnEnemy(Transform _enemy)
+    {
+        Debug.Log("Spawn Enemy");
+        Instantiate(_enemy, transform.position, transform.rotation);
     }
 }

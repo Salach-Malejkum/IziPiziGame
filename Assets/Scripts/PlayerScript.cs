@@ -85,6 +85,7 @@ public class PlayerScript : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range, layerMask))
         {
+
             if (hit.transform.gameObject.CompareTag("Enemy"))
             {
                 EnemyAI target = hit.transform.GetComponent<EnemyAI>();
