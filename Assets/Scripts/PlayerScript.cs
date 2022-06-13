@@ -23,7 +23,8 @@ public class PlayerScript : MonoBehaviour
     CharacterController characterController;
 
     void Start()
-    {   //Makes it invisable
+    {   
+        //Makes it invisable
         Cursor.visible = false;
         //Locks the mouse in place
         Cursor.lockState = CursorLockMode.Locked;
