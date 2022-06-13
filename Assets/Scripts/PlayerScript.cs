@@ -11,13 +11,19 @@ public class PlayerScript : MonoBehaviour
     public int killCounter = 0;
     public int lives = 3;
     public Camera playerCamera;
+    public int weaponDamage = 25;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
     float speed = 4f;
     CharacterController characterController;
     // Start is called before the first frame update
+
     void Start()
-    {
+    {   //Makes it invisable
+        Cursor.visible = false;
+        //Locks the mouse in place
+        Cursor.lockState = CursorLockMode.Locked;
+        // In unity press esc to unlock the mouse and unhide it
         characterController = GetComponent<CharacterController>();
     }
 
@@ -74,8 +80,10 @@ public class PlayerScript : MonoBehaviour
         // Zmienic Mathf.Infinity na melee bron
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
-            if (hit.transform.gameObject.layer == 8) // sprecyzowac co ma trafic
+            if (hit.transform.gameObject.CompareTag("Enemy")) // sprecyzowac co ma trafic
             {
+                EnemyAI target = hit.transform.GetComponent<EnemyAI>();
+                target.TakeDamage(weaponDamage); //wywoluje zabranie hp, ale obecnie nie mozna trafic
                 // Destroy(hit.transform.gameObject);
                 // dzwiek trafienie lub zmisowania czy cos
             }
@@ -87,7 +95,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.transform.gameObject.tag == "Weapon")
+        if (coll.transform.gameObject.CompareTag("Weapon"))
         {
             //ekwipowanie broni
             switch(coll.transform.gameObject.name)
