@@ -93,7 +93,6 @@ public class PlayerScript : MonoBehaviour
             {
                 EnemyAI target = hit.transform.GetComponent<EnemyAI>();
                 target.TakeDamage(weaponDamage); //wywoluje zabranie hp, ale obecnie nie mozna trafic
-                Debug.Log("HIT");
                 // Destroy(hit.transform.gameObject);
                 // dzwiek trafienie lub zmisowania czy cos
             }
@@ -113,10 +112,12 @@ public class PlayerScript : MonoBehaviour
                 case "Melee":
                     range = MELEERANGE;
                     weaponDamage = MELEEDAMAGE;
+                    weapon = "Melee";
                     break;
                 case "Ranged":
                     range = RANGEDRANGE;
                     weaponDamage = RANGEDDAMAGE;
+                    weapon = "Ranged";
                     break;
                 case "RPG":
                     range = RPGRANGE;

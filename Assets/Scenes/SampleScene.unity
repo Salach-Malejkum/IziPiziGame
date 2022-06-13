@@ -305,7 +305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &80264457
 RectTransform:
   m_ObjectHideFlags: 0
@@ -687,11 +687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4414800724295055116, guid: 34c243e90cab2bc49855d219f284c031, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4414800725333256170, guid: 34c243e90cab2bc49855d219f284c031, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34c243e90cab2bc49855d219f284c031, type: 3}
@@ -1306,6 +1306,7 @@ MonoBehaviour:
   lookXLimit: 45
   killCounter: 0
   lives: 3
+  delayBetweenLostHp: 2
   playerCamera: {fileID: 53072810}
   weaponDamage: 25
   weapon: Melee
