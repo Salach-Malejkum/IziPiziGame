@@ -24,6 +24,10 @@ public class PlayerScript : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
     float speed = 4f;
+    float gravity = 2*9.8f;
+    float vSpeed = 0f; // current vertical velocity
+    float jumpSpeed = 8f;
+
     CharacterController characterController;
 
     void Start()
@@ -57,6 +61,21 @@ public class PlayerScript : MonoBehaviour
 
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
+
+        Vector3 vel = transform.forward * Input.GetAxis("Vertical") * speed;
+        if (characterController.isGrounded)
+        {
+            vSpeed = 0; // grounded character has vSpeed = 0...
+            if (Input.GetKeyDown("space"))
+            { // unless it jumps:
+                vSpeed = jumpSpeed;
+            }
+        }
+        // apply gravity acceleration to vertical speed:
+        vSpeed -= gravity * Time.deltaTime;
+        vel.y = vSpeed; // include vertical speed in vel
+                        // convert vel to displacement and Move the character:
+        characterController.Move(vel * Time.deltaTime);
 
         float curSpeedX = speed * Input.GetAxis("Vertical");
         float curSpeedY = speed * Input.GetAxis("Horizontal");
