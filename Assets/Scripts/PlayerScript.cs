@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
     private bool gotHit = false;
     public float delayBetweenLostHp = 2f;
     public Camera playerCamera;
+    public GameObject melee;
+    public GameObject ranged;
 
     public int weaponDamage = MELEEDAMAGE;
     public string weapon = "Melee";
@@ -32,6 +34,8 @@ public class PlayerScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         // In unity press esc to unlock the mouse and unhide it
         characterController = GetComponent<CharacterController>();
+        // Equip melee weapon
+        melee.GetComponent<MeshRenderer>().enabled = true;
     }
 
     // Update is called once per frame
@@ -113,11 +117,15 @@ public class PlayerScript : MonoBehaviour
                     range = MELEERANGE;
                     weaponDamage = MELEEDAMAGE;
                     weapon = "Melee";
+                    ranged.GetComponent<MeshRenderer>().enabled = false;
+                    melee.GetComponent<MeshRenderer>().enabled = true;
                     break;
                 case "Ranged":
                     range = RANGEDRANGE;
                     weaponDamage = RANGEDDAMAGE;
                     weapon = "Ranged";
+                    melee.GetComponent<MeshRenderer>().enabled = false;
+                    ranged.GetComponent<MeshRenderer>().enabled = true;
                     break;
                 case "RPG":
                     range = RPGRANGE;
