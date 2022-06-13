@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour
     private bool gotHit = false;
     public float delayBetweenLostHp = 2f;
     public Camera playerCamera;
+    public GameObject melee;
+    public GameObject ranged;
 
     public int weaponDamage = MELEEDAMAGE;
     public string weapon = "Melee";
@@ -32,6 +34,8 @@ public class PlayerScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         // In unity press esc to unlock the mouse and unhide it
         characterController = GetComponent<CharacterController>();
+        // Equip melee weapon
+        melee.GetComponent<MeshRenderer>().enabled = true;
     }
 
     // Update is called once per frame
@@ -93,7 +97,6 @@ public class PlayerScript : MonoBehaviour
             {
                 EnemyAI target = hit.transform.GetComponent<EnemyAI>();
                 target.TakeDamage(weaponDamage); //wywoluje zabranie hp, ale obecnie nie mozna trafic
-                Debug.Log("HIT");
                 // Destroy(hit.transform.gameObject);
                 // dzwiek trafienie lub zmisowania czy cos
             }
@@ -113,10 +116,16 @@ public class PlayerScript : MonoBehaviour
                 case "Melee":
                     range = MELEERANGE;
                     weaponDamage = MELEEDAMAGE;
+                    weapon = "Melee";
+                    ranged.GetComponent<MeshRenderer>().enabled = false;
+                    melee.GetComponent<MeshRenderer>().enabled = true;
                     break;
                 case "Ranged":
                     range = RANGEDRANGE;
                     weaponDamage = RANGEDDAMAGE;
+                    weapon = "Ranged";
+                    melee.GetComponent<MeshRenderer>().enabled = false;
+                    ranged.GetComponent<MeshRenderer>().enabled = true;
                     break;
                 case "RPG":
                     range = RPGRANGE;
