@@ -1677,7 +1677,6 @@ GameObject:
   - component: {fileID: -7959657675344978835}
   - component: {fileID: 6264380866484065650}
   - component: {fileID: 2268863829859945251}
-  - component: {fileID: 2854062683628767162}
   m_Layer: 0
   m_Name: Zombie1
   m_TagString: Enemy
@@ -1754,20 +1753,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   hp: 50
-  clips:
-  - {fileID: 8300000, guid: c6cb9f7e23612e8439d0c5a05b72bbc7, type: 3}
-  - {fileID: 8300000, guid: 2b7d63bfe6f67da45a73621f5fc52115, type: 3}
-  - {fileID: 8300000, guid: 06cc596e728b5db4e993251d2e5f43a2, type: 3}
-  - {fileID: 8300000, guid: ecbd167855cb5b14392b47c8896aa7c2, type: 3}
-  - {fileID: 8300000, guid: c137924328639334e9bb919fd765ccf8, type: 3}
-  - {fileID: 8300000, guid: ad4b8c6352e814c48a9a0de765845031, type: 3}
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 10
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 30
   sightRange: 8
   attackRange: 1
   playerInSight: 0
   playerInRange: 0
+  spawned: 1
 --- !u!195 &6264380866484065650
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1789,7 +1782,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!136 &2268863829859945251
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1804,102 +1797,6 @@ CapsuleCollider:
   m_Height: 1.7770998
   m_Direction: 1
   m_Center: {x: 0.007277876, y: 0.92224777, z: 0.005797893}
---- !u!82 &2854062683628767162
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4493914613880827488}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &4710940672626480558
 GameObject:
   m_ObjectHideFlags: 0

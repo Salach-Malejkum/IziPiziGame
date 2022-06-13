@@ -8,15 +8,9 @@ using Random = UnityEngine.Random;
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
-    private Animator animator;
-    private AudioSource audio;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     public float hp;
-
-    [SerializeField]
-    public AudioClip[] clips;
-    private bool soundplayed = false;
 
     //Attack
     public float timeBetweenAttacks;
@@ -37,8 +31,6 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-
     }
 
     private void Update()
@@ -95,7 +87,6 @@ public class EnemyAI : MonoBehaviour
         {
             attacked = true;
             player.GetComponent<PlayerScript>().LoseHP();
-            animator.SetBool("IsAttacking", true);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -109,14 +100,8 @@ public class EnemyAI : MonoBehaviour
     {
         hp -= damage;
         wasAttacked = true;
-        int pickedClip = Random.Range(0, clips.Length);
-        audio.PlayOneShot(clips[pickedClip]);
 
-        if (hp <= 0)
-        {
-            animator.SetBool("isDead", true);
-            Invoke(nameof(Die), .5f);
-        }
+        if (hp <= 0) Invoke(nameof(Die), .5f);
     }
 
     private void Die()
