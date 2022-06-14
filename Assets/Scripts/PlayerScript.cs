@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     public Camera playerCamera;
     public GameObject melee;
     public GameObject ranged;
+    private AudioSource audio_source;
 
     public int weaponDamage = MELEEDAMAGE;
     public string weapon = "Melee";
@@ -30,6 +31,12 @@ public class PlayerScript : MonoBehaviour
 
     CharacterController characterController;
 
+    [SerializeField]
+    public AudioClip[] damageClips;
+    [SerializeField]
+    public AudioClip[] introClips;
+    private bool soundplayed = false;
+
     void Start()
     {   
         //Makes it invisable
@@ -40,6 +47,11 @@ public class PlayerScript : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         // Equip melee weapon
         melee.GetComponent<MeshRenderer>().enabled = true;
+        audio_source = GetComponent<AudioSource>();
+
+        int pickedClip = Random.Range(0, introClips.Length - 1);
+        //Debug.Log(pickedClip);
+        audio_source.PlayOneShot(introClips[pickedClip]);
     }
 
     // Update is called once per frame
@@ -159,6 +171,10 @@ public class PlayerScript : MonoBehaviour
     {
         if (!gotHit)
         {
+            int pickedClip = Random.Range(0, damageClips.Length - 1);
+            //Debug.Log(pickedClip);
+            audio_source.PlayOneShot(damageClips[pickedClip]);
+
             gotHit = true;
             lives -= 1;
             Invoke(nameof(ResetHpCountdown), delayBetweenLostHp);

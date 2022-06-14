@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-
+        audio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -109,7 +109,8 @@ public class EnemyAI : MonoBehaviour
     {
         hp -= damage;
         wasAttacked = true;
-        int pickedClip = Random.Range(0, clips.Length);
+        int pickedClip = Random.Range(0, clips.Length-1);
+        //Debug.Log(pickedClip);
         audio.PlayOneShot(clips[pickedClip]);
 
         if (hp <= 0)
