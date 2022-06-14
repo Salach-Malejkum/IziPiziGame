@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: e4b967223fe76f04ebd692c61ae5fc33, type: 2}
+--- !u!1 &244086789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4127344127759643569, guid: 43122524613a38e428bff3a5e3366702, type: 3}
+  m_PrefabInstance: {fileID: 738490521}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &481153175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8967,6 +8972,7 @@ GameObject:
   - component: {fileID: 490502060}
   - component: {fileID: 490502059}
   - component: {fileID: 490502061}
+  - component: {fileID: 490502062}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8990,6 +8996,7 @@ MonoBehaviour:
   attackTip: {fileID: 1417681417}
   pickUpTip: {fileID: 1428627329}
   zombie: {fileID: 883726580}
+  pickUpWeapon: {fileID: 244086789}
 --- !u!4 &490502060
 Transform:
   m_ObjectHideFlags: 0
@@ -9017,6 +9024,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.72880554, y: 0.76571846, z: 2.9784126}
   m_Center: {x: 2.505272, y: -1.1981945, z: -0.9892063}
+--- !u!65 &490502062
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490502058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.302845, y: 1.8289404, z: 2.3393593}
+  m_Center: {x: 11.524576, y: -0.4144702, z: -4.3580647}
 --- !u!1001 &640977608
 PrefabInstance:
   m_ObjectHideFlags: 0
