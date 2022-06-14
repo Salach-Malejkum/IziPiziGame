@@ -103,6 +103,7 @@ public class EnemyAI : MonoBehaviour
     private void ResetAttack()
     {
         attacked = false;
+        animator.SetBool("IsAttacking", false);
     }
 
     public void TakeDamage(int damage)
