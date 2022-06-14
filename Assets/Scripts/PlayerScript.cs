@@ -137,13 +137,8 @@ public class PlayerScript : MonoBehaviour
             if (hit.transform.gameObject.CompareTag("Enemy"))
             {
                 EnemyAI target = hit.transform.GetComponent<EnemyAI>();
-                target.TakeDamage(weaponDamage); //wywoluje zabranie hp, ale obecnie nie mozna trafic
-                // Destroy(hit.transform.gameObject);
-                // dzwiek trafienie lub zmisowania czy cos
-            }
-                
-            // Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            // Debug.Log(hit.transform.gameObject.layer);
+                target.TakeDamage(weaponDamage);
+            }     
         }
     }
 
