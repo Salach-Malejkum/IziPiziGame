@@ -22,9 +22,13 @@ public class SpawnerControl : MonoBehaviour
     private float searchDelay = 0f;
     private float monsterDelay = .2f;
 
+    public Transform door;
+    private Animator doorAnimator;
+
     private void Start()
     {
         countdown = spawnDelay;
+        doorAnimator = door.GetComponent<Animator>();
     }
 
     private void Update()
@@ -73,12 +77,14 @@ public class SpawnerControl : MonoBehaviour
     {
         Debug.Log("Spawn wave");
         state = SpawnState.SPAWNING;
+        doorAnimator.SetBool("Open", true);
 
         for (int i = 0; i < _wave.spawning_number; i++)
         {
             SpawnEnemy(_wave.enemy);
             yield return new WaitForSeconds(monsterDelay);
         }
+        doorAnimator.SetBool("Open", false);
 
         state = SpawnState.WAITING;
 
