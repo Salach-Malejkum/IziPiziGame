@@ -19,12 +19,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (zombie == null)
-        {
-            attackTip.SetActive(false);
-            pickUpTip.SetActive(true);
-        }
-
         if (pickUpWeapon == null)
         {
             pickUpTip.SetActive(false);
@@ -33,7 +27,12 @@ public class GameManager : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.transform.gameObject.CompareTag("Player"))
+        if (coll.transform.gameObject.CompareTag("Player") && zombie == null)
+        {
+            attackTip.SetActive(false);
+            pickUpTip.SetActive(true);
+        }
+        else if (coll.transform.gameObject.CompareTag("Player"))
         {
             movementTip.SetActive(false);
             attackTip.SetActive(true);
