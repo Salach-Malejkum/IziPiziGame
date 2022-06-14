@@ -16,7 +16,6 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField]
     public AudioClip[] clips;
-    private bool soundplayed = false;
 
     //Attack
     public float timeBetweenAttacks;

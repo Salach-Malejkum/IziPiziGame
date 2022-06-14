@@ -8,8 +8,8 @@ public class WeaponSpawnerScript : MonoBehaviour
     public GameObject melee;
     public GameObject ranged;
 
-    private float maxVal = 45.0f;
-    private float minVal = 0.0f;
+    public float maxVal = 45.0f;
+    public float minVal = 0.0f;
     private GameObject weapon = null;
     private int wave = 0;
     private SpawnerControl spawnerControl;

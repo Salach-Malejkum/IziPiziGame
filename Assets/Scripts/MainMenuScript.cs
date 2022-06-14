@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -59,6 +60,11 @@ public class MainMenuScript : MonoBehaviour
 
     public void BackSettings()
     {
+        if (options.activeSelf)
+        {
+            DifficultyLevel();
+        }
+
         options.SetActive(false);
         music.SetActive(false);
         backSettings.SetActive(false);
@@ -80,5 +86,13 @@ public class MainMenuScript : MonoBehaviour
     public void Arena()
     {
         SceneManager.LoadScene("SampleScene");
+    }
+
+    void DifficultyLevel()
+    {
+        foreach (Toggle toggle in options.transform.GetComponent<ToggleGroup>().ActiveToggles())
+        {
+            PlayerPrefs.SetString("difficultyLevel", toggle.name);
+        }
     }
 }

@@ -71,6 +71,7 @@ public class PauseMenuScript : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1.0f;
     }
 
     public void BackSettings()

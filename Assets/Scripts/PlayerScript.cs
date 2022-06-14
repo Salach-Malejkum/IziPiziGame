@@ -66,6 +66,12 @@ public class PlayerScript : MonoBehaviour
             //Debug.Log(pickedClip);
             audio_source.PlayOneShot(introClips[pickedClip]);
         }
+
+        if (isTutorial)
+        {
+            // weaponDamage *= 2;
+            range *= 2;
+        }
     }
 
     // Update is called once per frame
@@ -181,6 +187,12 @@ public class PlayerScript : MonoBehaviour
                     range = RPGRANGE;
                     weaponDamage = RPGDAMAGE;
                     break;
+            }
+
+            if (isTutorial)
+            {
+                // weaponDamage *= 2;
+                range *= 2;
             }
             Destroy(coll.transform.gameObject);
         }

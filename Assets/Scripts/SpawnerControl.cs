@@ -10,9 +10,11 @@ public class SpawnerControl : MonoBehaviour
     public class Wave
     {
         public int number;
-        public Transform enemy;
         public int spawning_number;
     }
+
+    [SerializeField]
+    public Transform[] monstersWithDiff;
 
     public Wave[] waves;
     public int nextWave = 0;
@@ -27,12 +29,28 @@ public class SpawnerControl : MonoBehaviour
 
     public Transform door;
     private Animator doorAnimator;
+    public Transform enemy;
 
     private void Start()
     {
         countdown = spawnDelay;
         endScreen.SetActive(false);
         doorAnimator = door.GetComponent<Animator>();
+        string difficultyLevel = PlayerPrefs.GetString("difficultyLevel");
+        switch (difficultyLevel) {
+            case "Easy":
+                enemy = monstersWithDiff[0];
+                break;
+            case "Medium":
+                enemy = monstersWithDiff[1];
+                break;
+            case "Hard":
+                enemy = monstersWithDiff[2];
+                break;
+            default:
+                enemy = monstersWithDiff[0];
+                break;
+        }
     }
 
     private void Update()
@@ -52,7 +70,7 @@ public class SpawnerControl : MonoBehaviour
 
     void WaveCompleted()
     {
-        Debug.Log("Wave completed");
+        // Debug.Log("Wave completed");
 
         state = SpawnState.COUNTING;
         countdown = spawnDelay;
@@ -87,13 +105,13 @@ public class SpawnerControl : MonoBehaviour
 
     IEnumerator SpawnWave(Wave _wave)
     {
-        Debug.Log("Spawn wave");
+        // Debug.Log("Spawn wave");
         state = SpawnState.SPAWNING;
         doorAnimator.SetBool("Open", true);
 
         for (int i = 0; i < _wave.spawning_number; i++)
         {
-            SpawnEnemy(_wave.enemy);
+            SpawnEnemy();
             yield return new WaitForSeconds(monsterDelay);
         }
         doorAnimator.SetBool("Open", false);
@@ -103,10 +121,10 @@ public class SpawnerControl : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(Transform _enemy)
+    void SpawnEnemy()
     {
-        Debug.Log("Spawn Enemy");
-        Instantiate(_enemy, transform.position, transform.rotation);
+        // Debug.Log("Spawn Enemy");
+        Instantiate(enemy, transform.position, transform.rotation);
     }
 
     public int GetWave()
