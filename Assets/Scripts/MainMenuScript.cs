@@ -13,17 +13,28 @@ public class MainMenuScript : MonoBehaviour
     public GameObject music;
     public GameObject title;
     public GameObject backSettings;
+    public GameObject tutorial;
+    public GameObject arena;
 
     void Start()
     {
         options.SetActive(false);
         music.SetActive(false);
         backSettings.SetActive(false);
+        tutorial.SetActive(false);
+        arena.SetActive(false);
     }
 
     public void Play()
     {
-        SceneManager.LoadScene("SampleScene");
+        play.SetActive(false);
+        settings.SetActive(false);
+        exit.SetActive(false);
+        title.SetActive(false);
+
+        tutorial.SetActive(true);
+        arena.SetActive(true);
+        backSettings.SetActive(true);
     }
 
     public void Settings()
@@ -48,10 +59,22 @@ public class MainMenuScript : MonoBehaviour
         options.SetActive(false);
         music.SetActive(false);
         backSettings.SetActive(false);
+        tutorial.SetActive(false);
+        arena.SetActive(false);
 
         play.SetActive(true);
         settings.SetActive(true);
         exit.SetActive(true);
         title.SetActive(true);
+    }
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void Arena()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

@@ -82,4 +82,11 @@ public class PauseMenuScript : MonoBehaviour
         settings.SetActive(true);
         mainMenu.SetActive(true);
     }
+
+    public void Restart()
+    {
+        // Application.LoadLevel(Application.loadedLevel);
+        Application.LoadLevel(Application.loadedLevel);
+        Time.timeScale = 1.0f;
+    }
 }
