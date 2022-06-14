@@ -54,7 +54,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void Exit()
     {
-        EditorApplication.isPlaying = false;
+        //EditorApplication.isPlaying = false;
     }
 
     public void BackSettings()
