@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnerControl : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class SpawnerControl : MonoBehaviour
     public Wave[] waves;
     public int nextWave = 0;
     public SpawnState state = SpawnState.COUNTING;
+    public GameObject endScreen;
+    public GameObject playerUI;
 
     public float spawnDelay = 5f;
     public float countdown;
@@ -25,6 +28,7 @@ public class SpawnerControl : MonoBehaviour
     private void Start()
     {
         countdown = spawnDelay;
+        endScreen.SetActive(false);
     }
 
     private void Update()
@@ -51,10 +55,18 @@ public class SpawnerControl : MonoBehaviour
 
         if (nextWave+1 > waves.Length-1)
         { // doda� tutaj co si� b�dzie dzia�o jak sko�cz� si� fale
+            playerUI.SetActive(false);
+            endScreen.SetActive(true);
             nextWave = 0;
-            Debug.Log("All waves completed! Looping back in time, good luck"); 
+            StartCoroutine(EndGame());
         }
         nextWave++;
+    }
+
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene("MainMenu"); 
     }
 
     bool CheckIfEnemiesAlive()

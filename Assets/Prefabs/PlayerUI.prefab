@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6619699921651690052}
   - component: {fileID: 6619699921651690050}
   - component: {fileID: 6619699921651690051}
+  - component: {fileID: 3403232806156419169}
   m_Layer: 5
   m_Name: Life2
   m_TagString: Untagged
@@ -75,6 +76,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &3403232806156419169
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619699921651690053}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b678592dd0bb3a429b573fffd917165, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6619699921901928714
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +325,7 @@ GameObject:
   - component: {fileID: 6619699922084067541}
   - component: {fileID: 6619699922084067539}
   - component: {fileID: 6619699922084067540}
+  - component: {fileID: 7885758615244890994}
   m_Layer: 5
   m_Name: Life3
   m_TagString: Untagged
@@ -369,6 +390,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7885758615244890994
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619699922084067542}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e398aa52b50071449ebe6087fb116bb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6619699922123232732
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +688,7 @@ GameObject:
   - component: {fileID: 6619699922743942020}
   - component: {fileID: 6619699922743942018}
   - component: {fileID: 6619699922743942019}
+  - component: {fileID: 7222603593867669195}
   m_Layer: 5
   m_Name: Life1
   m_TagString: Untagged
@@ -712,6 +753,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7222603593867669195
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619699922743942021}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 29472cd246f0bf744af2612a28afd078, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6619699922853194225
 GameObject:
   m_ObjectHideFlags: 0
