@@ -23,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject life3;
     public GameObject lostScreen;
     public GameObject playerUI;
+    public bool isTutorial;
 
     public int weaponDamage = MELEEDAMAGE;
     public string weapon = "Melee";
@@ -41,6 +42,10 @@ public class PlayerScript : MonoBehaviour
     public AudioClip[] damageClips;
     [SerializeField]
     public AudioClip[] introClips;
+    [SerializeField]
+    public AudioClip[] swordClips;
+    [SerializeField]
+    public AudioClip[] gunClips;
     public bool playIntro = true;
 
     void Start()
@@ -121,6 +126,15 @@ public class PlayerScript : MonoBehaviour
             return;
         }
 
+        if (weapon == "Melee") {
+            int pickedClip = Random.Range(0, swordClips.Length - 1);
+            melee.transform.GetComponent<AudioSource>().PlayOneShot(swordClips[pickedClip]);
+        }
+        else if (weapon == "Ranged") {
+            int pickedClip = Random.Range(0, gunClips.Length - 1);
+            ranged.transform.GetComponent<AudioSource>().PlayOneShot(gunClips[pickedClip]);
+        }
+
         // Bit shift the index of the layer (8) to get a bit mask
         int layerMask = 1 << 7;
 
@@ -174,7 +188,7 @@ public class PlayerScript : MonoBehaviour
 
     public void LoseHP()
     {
-        if (!gotHit)
+        if (!gotHit && !isTutorial)
         {
             int pickedClip = Random.Range(0, damageClips.Length - 1);
             //Debug.Log(pickedClip);
@@ -221,7 +235,7 @@ public class PlayerScript : MonoBehaviour
 
     void IsLost()
     {
-        if (life1 == null)
+        if (life1 == null && !isTutorial)
         {
             StartCoroutine(LostGame());
         }

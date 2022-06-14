@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8519212665170078168}
   - component: {fileID: 8519212665170078175}
   - component: {fileID: 8519212665170078174}
+  - component: {fileID: 6869818342544290100}
   m_Layer: 0
   m_Name: MeleeP
   m_TagString: Weapon
@@ -178,6 +179,102 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4
   m_Center: {x: -0.000000029802322, y: 0.90860474, z: 0}
+--- !u!82 &6869818342544290100
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8519212665170078173}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8519212665431177501
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +289,7 @@ GameObject:
   - component: {fileID: 8519212665431177496}
   - component: {fileID: 8519212665431177503}
   - component: {fileID: 8519212665431177502}
+  - component: {fileID: 3595158937723504529}
   m_Layer: 0
   m_Name: RangedP
   m_TagString: Weapon
@@ -356,6 +454,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &3595158937723504529
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8519212665431177501}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8519212665814378852
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +791,11 @@ MonoBehaviour:
   playerCamera: {fileID: 8519212665814378854}
   melee: {fileID: 8519212665170078173}
   ranged: {fileID: 8519212665431177501}
+  life1: {fileID: 0}
+  life2: {fileID: 0}
+  life3: {fileID: 0}
+  lostScreen: {fileID: 0}
+  playerUI: {fileID: 0}
   weaponDamage: 25
   weapon: Melee
   range: 2
@@ -612,6 +811,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 83d15ba02aa062e498679e2b82be3bda, type: 3}
   - {fileID: 8300000, guid: deca2d814d4c04a44a28102f31e87a4c, type: 3}
   - {fileID: 8300000, guid: b3d0b9b4a2fa14b4aa47bbecc4854a4b, type: 3}
+  swordClips:
+  - {fileID: 8300000, guid: 7649fc4ddda152f42980970bd53e00ae, type: 3}
+  - {fileID: 8300000, guid: 99ea438f1de28794e8e95cd9bc55130d, type: 3}
+  - {fileID: 8300000, guid: 13154bf5aff1f6a42bb4bebfc699f83c, type: 3}
+  - {fileID: 8300000, guid: 5be1a3eda962954478f1ecbe1f2cc4c8, type: 3}
+  - {fileID: 8300000, guid: bfb3fd3fa51deb34db0a4a069cac1b3a, type: 3}
+  - {fileID: 8300000, guid: 39d55416d8b769d419694529f3bbe25b, type: 3}
+  gunClips:
+  - {fileID: 8300000, guid: ef56f6b06345a614ca0e5ccafe253406, type: 3}
+  - {fileID: 8300000, guid: 241e5af17c14daa4a94c28c1a6d4b02e, type: 3}
+  - {fileID: 8300000, guid: 566c91e891ff7564d81a6b8d473b6830, type: 3}
+  - {fileID: 8300000, guid: 6c9b4dc2728770c429f5ead828c2e139, type: 3}
+  - {fileID: 8300000, guid: 583d97b43c89e5247b38a07e44e696bb, type: 3}
+  - {fileID: 8300000, guid: 7a4da3624de117f428be55da9d14f253, type: 3}
   playIntro: 1
 --- !u!82 &-848460251430525300
 AudioSource:
