@@ -15,6 +15,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject backSettings;
     public GameObject tutorial;
     public GameObject arena;
+    public GameObject zombieImage;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class MainMenuScript : MonoBehaviour
         settings.SetActive(false);
         exit.SetActive(false);
         title.SetActive(false);
+        zombieImage.SetActive(false);
 
         tutorial.SetActive(true);
         arena.SetActive(true);
@@ -43,6 +45,7 @@ public class MainMenuScript : MonoBehaviour
         settings.SetActive(false);
         exit.SetActive(false);
         title.SetActive(false);
+        zombieImage.SetActive(false);
 
         options.SetActive(true);
         music.SetActive(true);
@@ -66,6 +69,7 @@ public class MainMenuScript : MonoBehaviour
         settings.SetActive(true);
         exit.SetActive(true);
         title.SetActive(true);
+        zombieImage.SetActive(true);
     }
 
     public void Tutorial()
