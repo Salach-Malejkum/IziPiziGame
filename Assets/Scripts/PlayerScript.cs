@@ -35,7 +35,7 @@ public class PlayerScript : MonoBehaviour
     public AudioClip[] damageClips;
     [SerializeField]
     public AudioClip[] introClips;
-    private bool soundplayed = false;
+    public bool playIntro = true;
 
     void Start()
     {   
@@ -49,9 +49,12 @@ public class PlayerScript : MonoBehaviour
         melee.GetComponent<MeshRenderer>().enabled = true;
         audio_source = GetComponent<AudioSource>();
 
-        int pickedClip = Random.Range(0, introClips.Length - 1);
-        //Debug.Log(pickedClip);
-        audio_source.PlayOneShot(introClips[pickedClip]);
+        if (playIntro)
+        {
+            int pickedClip = Random.Range(0, introClips.Length - 1);
+            //Debug.Log(pickedClip);
+            audio_source.PlayOneShot(introClips[pickedClip]);
+        }
     }
 
     // Update is called once per frame
