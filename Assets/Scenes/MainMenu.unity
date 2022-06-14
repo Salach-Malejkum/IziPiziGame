@@ -1381,6 +1381,7 @@ MonoBehaviour:
   backSettings: {fileID: 1704854597}
   tutorial: {fileID: 54124615}
   arena: {fileID: 1298339147}
+  zombieImage: {fileID: 1940997675}
 --- !u!1 &1298339147 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 186255151011591702, guid: bd2868a199378134eb6d171407104818, type: 3}
