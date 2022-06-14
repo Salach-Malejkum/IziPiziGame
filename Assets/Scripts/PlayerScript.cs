@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Constants;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class PlayerScript : MonoBehaviour
     public GameObject melee;
     public GameObject ranged;
     private AudioSource audio_source;
+    public GameObject life1;
+    public GameObject life2;
+    public GameObject life3;
+    public GameObject lostScreen;
+    public GameObject playerUI;
 
     public int weaponDamage = MELEEDAMAGE;
     public string weapon = "Melee";
@@ -62,6 +68,7 @@ public class PlayerScript : MonoBehaviour
     {
         Movement();
         Attack();
+        IsLost();
     }
 
     void Movement()
@@ -180,6 +187,21 @@ public class PlayerScript : MonoBehaviour
 
             gotHit = true;
             lives -= 1;
+            switch (lives)
+            {
+                case 2:
+                    life3.GetComponent<Animator>().Play("Life3");
+                    Destroy(life3, 1.0f);
+                    break;
+                case 1:
+                    life2.GetComponent<Animator>().Play("Life2");
+                    Destroy(life2, 1.0f);
+                    break;
+                case 0:
+                    life1.GetComponent<Animator>().Play("Life1");
+                    Destroy(life1, 1.0f);
+                    break;
+            }
             Invoke(nameof(ResetHpCountdown), delayBetweenLostHp);
         }
     }
@@ -187,5 +209,26 @@ public class PlayerScript : MonoBehaviour
     void ResetHpCountdown()
     {
         gotHit = false;
+    }
+
+    IEnumerator LostGame()
+    {
+        playerUI.SetActive(false);
+        lostScreen.SetActive(true);
+        audio_source.mute = true;
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene("MainMenu"); 
+        //Makes it invisable
+        Cursor.visible = true;
+        //Locks the mouse in place
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    void IsLost()
+    {
+        if (life1 == null)
+        {
+            StartCoroutine(LostGame());
+        }
     }
 }
